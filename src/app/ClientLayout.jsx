@@ -20,6 +20,25 @@ export default function ClientLayout({ children }) {
 
   // Make the navbar transparent only on the homepage (where the hero image is)
   const isTransparent = TRANSPARENT_NAV_ROUTES.includes(pathname)
+  // Dedicated authentication routes use a clean, focused luxury portal layout
+  const isAuthPage = pathname === '/signin' || pathname === '/signup'
+
+  if (isAuthPage) {
+    return (
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={pathname}
+          initial={shouldReduce ? {} : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={shouldReduce ? {} : { opacity: 0 }}
+          transition={{ duration: 0.25, ease: 'easeOut' }}
+          className="min-h-screen"
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
+    )
+  }
 
   return (
     <>
