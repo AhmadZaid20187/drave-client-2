@@ -76,9 +76,8 @@ export default function Navbar({ transparent = false, onSearchOpen }) {
                   alt="DRAVE"
                   width={96}
                   height={47}
-                  className={`h-7 md:h-8 w-auto object-contain transition-all duration-300 ${
-                    isTransparent ? 'brightness-0 invert' : ''
-                  }`}
+                  className={`h-7 md:h-8 w-auto object-contain transition-all duration-300 ${isTransparent ? 'brightness-0 invert' : ''
+                    }`}
                   priority
                 />
               </Link>
@@ -116,9 +115,9 @@ export default function Navbar({ transparent = false, onSearchOpen }) {
 
               {/* Account link — desktop only */}
               <Link
-                href="/account"
+                href="/signin"
                 className={`p-1 hidden md:block transition-colors duration-300 ${textColor} hover:opacity-60 focus-visible:outline-none`}
-                aria-label="Account"
+                aria-label="SignIn"
               >
                 <User className="h-5 w-5" strokeWidth={1.5} />
               </Link>
