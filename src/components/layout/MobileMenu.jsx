@@ -142,7 +142,7 @@ export default function MobileMenu({ isOpen, onClose, onSearchOpen }) {
             className="px-8 pb-8 flex items-center gap-6"
           >
             <Link
-              href="/account"
+              href="/signin"
               onClick={handleLinkClick}
               className="flex items-center gap-2 text-white/50 hover:text-white text-xs tracking-widest uppercase transition-colors"
             >
