@@ -9,7 +9,11 @@ export const auth = betterAuth({
     emailAndPassword: {
         enabled: true,
     },
-
+    emailVerification: {
+        enabled: true,
+        required: true,
+        sendWelcomeEmail: true, // Sends welcome email after successful verification
+    },
 
     database: mongodbAdapter(db, {
         // Optional: if you don't provide a client, database transactions won't be enabled.
