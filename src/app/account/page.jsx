@@ -12,7 +12,8 @@ export default function AccountPage() {
 
   return (
     <div className="min-h-screen bg-[#FAF8F5] flex items-center justify-center">
-      <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#0A0A0A] border-t-transparent" />
+      {/* <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#0A0A0A] border-t-transparent" /> */}
+      <p className='text-4xl font-serif text-gray-900'>AccountPage</p>
     </div>
   )
 }
