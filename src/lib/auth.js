@@ -10,7 +10,7 @@ export const auth = betterAuth({
 
     trustedOrigins: [
         "http://localhost:3000",
-        "https://YOUR-LIVE-DOMAIN.com",
+        "https://drave-client-2.vercel.app/",
     ],
 
     emailAndPassword: {
