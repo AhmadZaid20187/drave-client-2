@@ -86,7 +86,7 @@ export default function SignInPage() {
       text: 'Welcome back to DRAVE. Redirecting to your account...',
     })
 
-    router.push('/dashboard')
+    router.push('/account')
   }
 
   // ---- Changed: real Google OAuth call (only if provider is configured server-side) ----
@@ -98,7 +98,7 @@ export default function SignInPage() {
 
     await authClient.signIn.social({
       provider: 'google',
-      callbackURL: '/dashboard',
+      callbackURL: '/account',
     })
   }
 

@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { X, Search, ShoppingBag, User } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
+import { useSession } from '@/lib/auth-client'
 
 // Navigation links shown in the mobile menu
 const NAV_LINKS = [
@@ -18,6 +19,7 @@ const NAV_LINKS = [
 
 // MobileMenu — full-screen overlay that slides in on mobile
 export default function MobileMenu({ isOpen, onClose, onSearchOpen }) {
+  const { data: session } = useSession()
   const shouldReduce = useReducedMotion()
   const { totalItems, openCart } = useCart()
 
@@ -142,12 +144,12 @@ export default function MobileMenu({ isOpen, onClose, onSearchOpen }) {
             className="px-8 pb-8 flex items-center gap-6"
           >
             <Link
-              href="/signin"
+              href={session?.user ? '/account' : '/signin'}
               onClick={handleLinkClick}
               className="flex items-center gap-2 text-white/50 hover:text-white text-xs tracking-widest uppercase transition-colors"
             >
               <User className="h-4 w-4" strokeWidth={1.5} />
-              Account
+              {session?.user ? 'Dashboard' : 'Account'}
             </Link>
           </motion.div>
         </motion.div>

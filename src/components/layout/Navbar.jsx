@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { motion, useReducedMotion, AnimatePresence } from 'framer-motion'
 import { Search, User, ShoppingBag, Menu } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
+import { useSession } from '@/lib/auth-client'
 import AnnouncementBar from './AnnouncementBar'
 import MobileMenu from './MobileMenu'
 
@@ -21,6 +22,7 @@ const NAV_LINKS = [
 // Navbar — fixed at the top of every page
 // transparent: true on the homepage so it overlaps the hero image
 export default function Navbar({ transparent = false, onSearchOpen }) {
+  const { data: session } = useSession()
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { totalItems, openCart } = useCart()
@@ -115,9 +117,9 @@ export default function Navbar({ transparent = false, onSearchOpen }) {
 
               {/* Account link — desktop only */}
               <Link
-                href="/signin"
+                href={session?.user ? '/account' : '/signin'}
                 className={`p-1 hidden md:block transition-colors duration-300 ${textColor} hover:opacity-60 focus-visible:outline-none`}
-                aria-label="SignIn"
+                aria-label={session?.user ? 'Account' : 'Sign In'}
               >
                 <User className="h-5 w-5" strokeWidth={1.5} />
               </Link>
