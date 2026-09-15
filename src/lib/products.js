@@ -388,7 +388,7 @@ export const COLLECTIONS = [
     slug: 'drave-black',
     name: 'DRAVE Black',
     tagline: 'Exclusive. Uncompromising. Elevated.',
-    description: 'The most premium tier of the DRAVE collection. Limited quantities. Maximum quality.',
+    description: 'The most premium tier of the DRAVE collection. Limited and primioum quantities . Maximum quality.',
     image: 'https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=1200&q=80',
     productCount: 5,
   },
